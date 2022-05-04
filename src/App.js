@@ -1,16 +1,13 @@
+import React from "react";
+import Counter from "./Counter";
+
+
 function App() {
+  //console.log("render App Component")
   return (
-      <div>
-        <p>Hello world</p>
-      </div>
-    );
+      <Counter initialCount={0} />
+    )
 }
 
 export default App;
-// const App = () => (
-//   <div>
-//     <p>Hello world</p>
-//   </div>
-// )
 
-// export default App
