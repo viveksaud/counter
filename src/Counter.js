@@ -1,4 +1,6 @@
+// we use her class component, context api
 import React, { Component } from "react";
+import { ThemeContext } from "./App";
 
 export default class Counter extends Component {
   constructor(props) {
@@ -20,12 +22,18 @@ export default class Counter extends Component {
   render() {
     //console.log("render Counter Component")
     return (
-        //child component here if exist. <component />
-      <div>
-        <button onClick={() => this.changeCount(-1)}>-</button>
-        <span>{this.state.count}</span>
-        <button onClick={() => this.changeCount(1)}>+</button>
-      </div>
+      //child component here if exist. <component />
+      <ThemeContext.Consumer>
+        {(style) => {
+          return (
+            <div>
+              <button style={style} onClick={() => this.changeCount(-1)}>-</button>
+              <span>{this.state.count}</span>
+              <button style={style} onClick={() => this.changeCount(1)}>+</button>
+            </div>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }
